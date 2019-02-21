@@ -27,6 +27,15 @@ module.exports = function (io) {
     console.info(unmatched);
   }
 
+  function getOpponent(socket) {
+    if (!players[socket.id].opponent) return;
+
+    // return the socket of the opponent
+    return players[
+      players[socket.id].opponent
+    ].socket;
+  }
+
   function newConnection(socket) {
     console.log('New connection', socket.id);
     joinGame(socket);
@@ -35,6 +44,20 @@ module.exports = function (io) {
   // events
   io.on('connection', (socket) => {
     newConnection(socket);
+
+    if (getOpponent(socket)) {
+      console.info('The game has started!');
+
+      socket.emit('server-game.start', {
+        symbol: players[socket.id].symbol
+      });
+
+      getOpponent(socket).emit('server-game.start', {
+        symbol: players[getOpponent(socket).id].symbol
+      });
+    } else {
+      console.info('Waiting for opponent...')
+    }
   });
 
 }
