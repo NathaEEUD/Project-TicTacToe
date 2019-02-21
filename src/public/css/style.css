@@ -185,3 +185,38 @@ header {
   border-top: 4px solid #6A4C93;
   border-bottom: 4px solid #6A4C93;
 }
+
+@media screen and (max-width: 960px) {
+  .title h1 {
+    font-size: 4rem;
+  }
+
+  #leftSide .player-info .player {
+    font-size: 2rem;
+  }
+  #leftSide .player-info .player-symbol {
+    font-size: 4rem;
+  }
+  #leftSide .history span {
+    font-size: 1.5rem;
+  }
+
+  #centerSide .alert {
+    font-size: 1.3rem;
+  }
+
+  #rightSide .title {
+    font-size: 1.3rem;
+    margin: 15px;
+  }
+  #rightSide .list-paused-games {
+    padding-left: 10px;
+  }
+  #rightSide .paused-game p {
+    font-size: 16px;
+  }
+  #rightSide .paused-game .resume-game {
+    font-size: 14px;
+  }
+
+}
