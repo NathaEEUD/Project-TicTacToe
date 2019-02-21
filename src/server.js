@@ -10,3 +10,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 const server = app.listen(app.get('port'), () => {
   console.log('Server listening on port', app.get('port'));
 });
+
+// websockets
+const SocketIO = require('socket.io');
+const io = SocketIO(server);
+require('./sockets')(io);
