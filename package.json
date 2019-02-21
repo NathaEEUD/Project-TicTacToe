@@ -22,6 +22,7 @@
   "dependencies": {
     "express": "^4.16.4",
     "mongoose": "^5.4.14",
+    "mongoose-auto-increment": "^5.0.1",
     "socket.io": "^2.2.0"
   },
   "devDependencies": {
