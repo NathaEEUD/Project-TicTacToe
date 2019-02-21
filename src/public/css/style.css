@@ -21,3 +21,167 @@ header {
   font-size: 5rem;
   color: white;
 }
+
+#leftSide {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: inset 0px 2px 16px 2px #bdbdbd;
+}
+#leftSide .player-info {
+  text-align: center;
+}
+#leftSide .player-info .player {
+  text-transform: uppercase;
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+#leftSide .player-info .player-symbol {
+  text-transform: uppercase;
+  font-size: 5rem;
+  font-weight: bold;
+  color: rgb(255, 139, 0);
+}
+#leftSide .history span {
+  text-transform: uppercase;
+  font-size: 2rem;
+}
+#leftSide .history span:nth-child(1) {
+  color: #28a745;
+  font-weight: 600;
+}
+#leftSide .history span:nth-child(2) {
+  color: #6A4C93;
+  font-weight: 600;
+}
+#leftSide .history .started,
+#leftSide .history .draw,
+#leftSide .history .won {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#centerSide {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 80vh;
+}
+#centerSide .alert {
+  font-size: 1.5rem;
+  color: #BF3100;
+  background-color: #ADD15C;
+  border: 3px solid;
+  border-color: #7FB800;
+  box-shadow: -8px 8px 17px 2px #6A4C93;
+}
+.gameholder {
+  /* margin-top: 20px; */
+  background-color: #E3DEEB;
+  padding: 20px;
+  border: 3px solid #6A4C93;
+  border-radius: 10px;
+  width: 360px;
+  /* margin-left: auto;
+  margin-right: auto; */
+  box-shadow: -8px 8px 17px 2px #6A4C93;
+}
+.gameholder .table {
+  font-size: 60px;
+  color: #F1C40F;
+  margin-bottom: 0px;
+}
+.gameholder .table>tbody>tr>td {
+  border: 0px;
+  height: 106px;
+  width: 103px;
+  padding: 4px;
+}
+.gameholder .table>tbody>tr>td.tdmiddle {
+  border-right: 8px solid #6A4C93;
+  border-left: 8px solid #6A4C93;
+}
+.gameholder .trmiddle {
+  border-top: 8px solid #6A4C93;
+  border-bottom: 8px solid #6A4C93;
+}
+.gameholder .btn {
+  font-size: 26px;
+  margin-top: -15px;
+  margin-bottom: -20px;
+}
+.gameholder .btn-square {
+  font-size: 65px;
+  font-weight: bold;
+  padding: 0px;
+  margin: 0px;
+  height: 80px;
+  width: 80px;
+  background-color: #E3DEEB;
+  vertical-align: baseline;
+  color: rgb(255, 139, 0);
+}
+.gameholder .btn-square:focus, btn-square.focus {
+  outline: none !important;
+  background-color: #E3DEEB;
+}
+#centerSide .pause-game {
+  font-size: 17px;
+  font-weight: bold;
+  color: #BF3100;
+  background-color: #ADD15C;
+  border-color: #7FB800;
+  box-shadow: -8px 8px 17px 2px #6A4C93;
+}
+
+#rightSide {
+  height: 80vh;
+  box-shadow: inset 0px 2px 16px 2px #bdbdbd;
+  overflow-y: scroll;
+}
+#rightSide .title {
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 10px;
+}
+#rightSide .list-paused-games {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+#rightSide .paused-game p {
+  font-size: 19px;
+}
+#rightSide .paused-game .resume-game {
+  background-color: rgb(255, 139, 0);
+  font-weight: bold;
+}
+#rightSide .paused-board {
+  padding: 20px;
+  width: 150px;
+}
+.paused-board .table {
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgb(255, 139, 0);
+  margin-bottom: 0px;
+}
+.paused-board .table>tbody>tr>td {
+  border: 0px;
+  height: 30px;
+  width: 30px;
+  padding: 4px;
+}
+.paused-board .table>tbody>tr>td.tdmiddle {
+  border-right: 4px solid #6A4C93;
+  border-left: 4px solid #6A4C93;
+}
+.paused-board .trmiddle {
+  border-top: 4px solid #6A4C93;
+  border-bottom: 4px solid #6A4C93;
+}
