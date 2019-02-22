@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Tic Tac Toe</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
+
+  <!-- Bootstrap -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script> -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="container-fluid pr-0 pl-0">
+
+    <div class="row mr-0 ml-0">
+      
+      <div class="col pr-0 pl-0">
+        <header class="title">
+          <h1>Tic Tac Toe</h1>
+        </header>
+      </div>
+
+    </div>
+
+    <div class="row mr-0 ml-0">
+
+      <div id="leftSide" class="col-xs-12 col-md-3 col-lg-3 p-0">
+
+        <div class="player-info mb-5">
+          <p class="player">You are player</p>
+          <p class="player-symbol">x</p>
+        </div>
+
+        <div class="history mt-5">
+          <div class="started">
+            <span>Started</span>
+            <span class="number"></span>
+          </div>
+          <div class="draw">
+            <span>Draw</span>
+            <span class="number"></span>
+          </div>
+          <div class="won">
+            <span>Won</span>
+            <span class="number"></span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="centerSide" class="col-xs-12 col-md-6 col-lg-6">
+
+        <div class="alert alert-primary mt-4 text-center">
+          Waiting for opponent to join...
+        </div>
+
+        <div class="gameholder">
+          <table class="table text-center">
+            <tr>
+              <td class="square"><button id="a0" class="btn btn-square"> X</button></td>
+              <td class="square tdmiddle"><button id="a1" class="btn btn-square"> </button></td>
+              <td class="square"><button id="a2" class="btn btn-square"> </button></td>
+            </tr>
+            <tr class="trmiddle">
+              <td class="square"><button id="b0" class="btn btn-square"> </button></td>
+              <td class="square tdmiddle"><button id="b1" class="btn btn-square"> </button></td>
+              <td class="square"><button id="b2" class="btn btn-square"> O</button></td>
+            </tr>
+            <tr>
+              <td class="square"><button id="c0" class="btn btn-square"> </button></td>
+              <td class="square tdmiddle"><button id="c1" class="btn btn-square"> </button></td>
+              <td class="square"><button id="c2" class="btn btn-square"> </button></td>
+            </tr>
+          </table>
+        </div>
+
+        <div>
+          <button type="button" class="pause-game btn btn-success">Pause</button>  
+        </div>
+
+      </div>
+
+      <div id="rightSide" class="col-xs-12 col-md-3 col-lg-3 p-0">
+
+        <div class="title">
+          <span>List of paused games</span>
+        </div>
+
+        <div class="wrapper-list">
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="myModalTitle"></h5>
+            <button type="button" class="closeModal" data-dismiss="modal">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body text-center">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="closeModal btn btn-primary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Modal Error -->
+    <div class="modal fade" id="errorModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="errorModalTitle"></h5>
+            <button type="button" class="closeErrorModal" data-dismiss="modal">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="closeErrorModal btn btn-primary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>
