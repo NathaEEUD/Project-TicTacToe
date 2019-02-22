@@ -174,10 +174,6 @@ function renderList(pausedGameId, pausedGameBoard) {
 }
 
 function resumeGame(e) {
-  // e.preventDefault();
-
-  console.log($(this).attr('id'));
-
   socket.emit('client-resume.game', {
     gameId: $(this).attr('id')
   });
@@ -278,6 +274,12 @@ socket.on('server-resumed.game', (data) => {
 
   // delete the resumed game of the list
   socket.emit('client-delete.resumed.game', data.gameId);
+});
+
+socket.on('server-opponent.left', () => {
+  $('#myModalTitle').text('Sorry...');
+  $('#myModal .modal-body').text('Your opponent left the game');
+  $('#myModal').modal('show');
 });
 
 $(function () {

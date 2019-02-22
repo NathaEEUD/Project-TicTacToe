@@ -13,7 +13,7 @@ module.exports = (() => {
       instance = await mongoose.connect(DB_URI, { useNewUrlParser: true}, (err) => {
         if (err) throw err;
       });
-      console.log('Succesfully connected to Database.');
+      console.log('Succesfully connected to Database');
       resolve(instance);
     })
 

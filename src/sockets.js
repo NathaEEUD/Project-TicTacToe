@@ -35,9 +35,9 @@ module.exports = function (io) {
       unmatched = socket.id;
     }
 
-    console.info(players);
-    console.info(players[socket.id].symbol);
-    console.info(unmatched);
+    // console.info(players);
+    // console.info(players[socket.id].symbol);
+    // console.info(unmatched);
   }
 
   function getOpponent(socket) {
@@ -67,7 +67,7 @@ module.exports = function (io) {
   async function newConnection(socket) {
     let started;
 
-    console.log('New connection', socket.id);
+    // console.log('New connection', socket.id);
     joinGame(socket);
 
     // empty the list of paused games and update it with the paused games stored
@@ -94,7 +94,7 @@ module.exports = function (io) {
 
       History.findOneAndUpdate({}, { $set: { started: started + 1 } }, { new: true }, (err, data) => {
         if (err) throw err;
-        console.log(data);
+        // console.log(data);
         historyUpdate(data.started, data.draw, data.won);
       });
 
@@ -133,7 +133,7 @@ module.exports = function (io) {
 
         History.findOneAndUpdate({}, { $set: { won: won + 1 } }, { new: true }, (err, data) => {
           if (err) throw err;
-          console.log(data);
+          // console.log(data);
           historyUpdate(data.started, data.draw, data.won);
         });
       }
@@ -149,7 +149,7 @@ module.exports = function (io) {
 
         History.findOneAndUpdate({}, { $set: { draw: draw + 1 } }, { new: true }, (err, data) => {
           if (err) throw err;
-          console.log(data);
+          // console.log(data);
           historyUpdate(data.started, data.draw, data.won);
         });
       }
@@ -160,7 +160,7 @@ module.exports = function (io) {
     });
 
     socket.on('client-pause.game', async (data) => {
-      console.log(data);
+      // console.log(data);
 
       let pausedGame = new Game({
         status: data.status,
@@ -215,15 +215,12 @@ module.exports = function (io) {
       await Game.findOneAndDelete({ gameId: gameId }, (err, data) => {
         if (err) throw err;
 
-        console.log('1', socket.id);
         console.log('Game sucessfully deleted');
       });
 
       Game.find((err, list) => {
         if (err) throw err;
         
-        console.log('1', socket.id);
-
         socket.emit('server-list.empty');
 
         if (list.length) {
@@ -232,6 +229,13 @@ module.exports = function (io) {
           });
         }
       });
+    });
+
+    socket.on('disconnect', () => {
+      if (getOpponent(socket)) {
+        console.log('The opponent has been leave');
+        getOpponent(socket).emit('server-opponent.left');
+      }
     });
 
   });
