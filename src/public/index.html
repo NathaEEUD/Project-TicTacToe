@@ -96,34 +96,52 @@
           <span>List of paused games</span>
         </div>
 
-        <div class="list-paused-games px-md-0 pl-md-3 px-lg-4">
-          <div class="paused-game text-center">
-            <p>Game #10</p>
-            <button type="button" class="resume-game btn btn-outline-success">Resume</button>
-          </div>
-          <div class="paused-board">
-            <table class="table text-center">
-              <tr>
-                <td id="sq1" class="square">X</td>
-                <td id="sq2" class="square tdmiddle"></td>
-                <td id="sq3" class="square"></td>
-              </tr>
-              <tr class="trmiddle">
-                <td id="sq4" class="square"></td>
-                <td id="sq5" class="square tdmiddle"></td>
-                <td id="sq6" class="square">X</td>
-              </tr>
-              <tr>
-                <td id="sq7" class="square"></td>
-                <td id="sq8" class="square tdmiddle"></td>
-                <td id="sq9" class="square">O</td>
-              </tr>
-            </table>
-          </div>
+        <div class="wrapper-list">
+
         </div>
 
       </div>
 
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="myModalTitle"></h5>
+            <button type="button" class="closeModal" data-dismiss="modal">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body text-center">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="closeModal btn btn-primary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Modal Error -->
+    <div class="modal fade" id="errorModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="errorModalTitle"></h5>
+            <button type="button" class="closeErrorModal" data-dismiss="modal">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="closeErrorModal btn btn-primary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
     </div>
 
   </div>
