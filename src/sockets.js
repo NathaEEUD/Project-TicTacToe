@@ -195,8 +195,6 @@ module.exports = function (io) {
       Game.find({ gameId: data.gameId }, (err, pausedGame) => {
         if (err) throw err;
 
-        console.log(pausedGame);
-
         socket.emit('server-resumed.game', {
           boardState: pausedGame[0].boardState,
           symbol: pausedGame[0].symbol,
@@ -213,16 +211,21 @@ module.exports = function (io) {
       });
     });
 
-    socket.on('client-delete.resumed.game', (gameId) => {
-      Game.findOneAndDelete({ gameId: gameId }, (err, data) => {
+    socket.on('client-delete.resumed.game', async (gameId) => {
+      await Game.findOneAndDelete({ gameId: gameId }, (err, data) => {
         if (err) throw err;
 
+        console.log('1', socket.id);
         console.log('Game sucessfully deleted');
       });
 
       Game.find((err, list) => {
         if (err) throw err;
-  
+        
+        console.log('1', socket.id);
+
+        socket.emit('server-list.empty');
+
         if (list.length) {
           list.forEach(item => {
             listUpdate(socket, item.gameId, item.boardState);

@@ -1,7 +1,9 @@
 const socket = io();
 
 let symbol,
-    myTurn;
+    myTurn,
+    won = false,
+    draw = false;
 
 // functions
 function renderTurnMessage() {
@@ -172,7 +174,7 @@ function renderList(pausedGameId, pausedGameBoard) {
 }
 
 function resumeGame(e) {
-  e.preventDefault();
+  // e.preventDefault();
 
   console.log($(this).attr('id'));
 
@@ -262,7 +264,7 @@ socket.on('server-waiting.opponent', () => {
 socket.on('server-resumed.game', (data) => {
   // render the boardstate of the resumed game
   for (let tile in data.boardState) {
-    $('#gameholder #' + tile).text(data.boardState[tile]);
+    $('.gameholder #' + tile).text(data.boardState[tile]);
   }
 
   // taking the turn of the resumed game
